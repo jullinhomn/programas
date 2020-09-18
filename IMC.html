@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+    <style>
+        body {
+            font: normal 20pt Arial;
+            background-color: teal;
+        }
+        div#res {
+            margin-top: 25px;
+        }
+        input {
+            font: normal 18pt Arial;
+            width: 100px
+        }
+        div#julio {
+            margin-top: 500px;
+            font: normal 15pt Arial;
+        }
+        div#versao {
+            font: normal 12pt Arial;
+        }
+        div#tecnologia {
+            font: normal 10pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calcule seu IMC</h1>
+    <input type="number" name="peso" id="pesoinformado">
+    <input type="number" name="altura" id="alturainformado">
+    <input type="button" value="calcular" onclick="calcular()">
+    <div id="res">Resultado</div>
+    <div id="julio">Desenvolvido por @jullinhomn</div>
+    <div id="versao">Versão 2.0</div>
+    <div id="tecnologia">Tecnologias usadas: HTML5, CSS, JavaScript.</div>
+    
+    
+   <script>
+        function calcular(){
+            
+            var peso = document.querySelector("input#peso");
+            var altura = document.querySelector("input#altura");
+            var pesoInformado = Number(pesoinformado.value);
+            var alturaInformado = Number(alturainformado.value);
+            var totalIMC = pesoInformado / (alturaInformado * alturaInformado);
+            var totalArredondado = Math.round(totalIMC);
+                        
+            if(totalArredondado < 18.5) {
+                res.innerHTML = `O seu IMC é <strong>${totalArredondado}</strong>, e você está abaixo do recomendado!`;
+            } 
+            if (totalArredondado > 35.5) {
+                res.innerHTML = `O seu IMC é <strong>${totalArredondado}</strong>, e você está acima do recomendado!`;
+            }
+            if (totalArredondado > 18.5 && totalArredondado < 35.5){
+                res.innerHTML = `O seu IMC é <strong>${totalArredondado}</strong>, e está exelente!`;
+            }
+            
+        }  
+
+    </script>
+
+
+
+</body>
+</html>
